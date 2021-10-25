@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainPage</class>
+ <widget class="QWidget" name="MainPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1384</width>
+    <height>763</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #021c1e</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QListWidget" name="list_of_pages">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>11</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QListWidget {
+	border: none;
+}
+
+QListWidget:item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+QListWidget:item:hover {
+    background-color: rgba(111, 185, 143, 0.3);
+	border-radius: 10px;
+	color: #021c1e;
+}
+
+QListWidget:item:!hover {
+    background-color: #021c1e;
+	color: white
+}
+
+QListWidget:item:selected {
+    background-color: #6fb98f;
+	border-radius: 10px;
+    color: white;
+}</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Диаграмма</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>График</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Регулярные платежи</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Конвертер валют</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Курс валют</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Настройки</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QStackedWidget" name="stacked_main_pages">
+        <widget class="QWidget" name="diagramm_page"/>
+        <widget class="QWidget" name="schedule_page"/>
+        <widget class="QWidget" name="regular_page"/>
+        <widget class="QWidget" name="converter_page"/>
+        <widget class="QWidget" name="exchange_page"/>
+        <widget class="QWidget" name="settings_page"/>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QFrame" name="frame_2">
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+	background-color: #004445;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="bill_info">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0" colspan="3">
+            <widget class="QComboBox" name="list_of_accounts">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>MS Reference Sans Serif</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 10px;
+  selection-background-color: rgb(39, 44, 54);
+  border: none;
+  height: 6px;
+  width: 6px;
+  margin: 0px;
+	border-radius: 5px;
+}</string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="duplicatesEnabled">
+              <bool>false</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>aSas</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ASasAS</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="change_balance">
+             <property name="maximumSize">
+              <size>
+               <width>21</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>pen.png</normaloff>pen.png</iconset>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="balance_label">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>MS Sans Serif</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="currency_label">
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QListWidget" name="profile_list_widget">
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: none;
+border-bottom: 2px ridge #6fb98f;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
