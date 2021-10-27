@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainPage</class>
+ <widget class="QWidget" name="MainPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1384</width>
+    <height>763</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #021c1e</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QListWidget" name="list_of_pages">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>11</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QListWidget {
+	border: none;
+}
+
+QListWidget:item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+QListWidget:item:hover {
+    background-color: rgba(111, 185, 143, 0.3);
+	border-radius: 10px;
+	color: #021c1e;
+}
+
+QListWidget:item:!hover {
+    background-color: #021c1e;
+	color: white
+}
+
+QListWidget:item:selected {
+    background-color: #6fb98f;
+	border-radius: 10px;
+    color: white;
+}</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Диаграмма</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/diagram.png</normaloff>icons/diagram.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>График</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/bar</normaloff>icons/bar</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Регулярные платежи</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/regular.png</normaloff>icons/regular.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Конвертер валют</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/converter.png</normaloff>icons/converter.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Курс валют</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/exchange_rate.png</normaloff>icons/exchange_rate.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Настройки</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/settings.png</normaloff>icons/settings.png</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QListWidget" name="profile_list_widget">
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QListWidget {
+	border: none;
+	border-bottom: 2px ridge #6fb98f;
+	color: white;
+}
+
+QListWidget:item {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+QListWidget:item:hover {
+    background-color: rgba(111, 185, 143, 0.3);
+	border-radius: 10px;
+	color: #021c1e;
+}
+
+QListWidget:item:!hover {
+    background-color: #021c1e;
+	color: white
+}
+
+</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Профиль</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>MS Sans Serif</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="background">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/user.png</normaloff>icons/user.png</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QStackedWidget" name="stacked_main_pages">
+        <property name="currentIndex">
+         <number>3</number>
+        </property>
+        <widget class="QWidget" name="diagramm_page"/>
+        <widget class="QWidget" name="schedule_page"/>
+        <widget class="QWidget" name="regular_page"/>
+        <widget class="QWidget" name="converter_page">
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="horizontalSpacing">
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>0</number>
+          </property>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="available_currency">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 10px;
+  selection-background-color: rgb(39, 44, 54);
+  border: none;
+  height: 6px;
+  width: 6px;
+  margin: 0px;
+	border-radius: 10px;
+}</string>
+            </property>
+            <property name="currentText">
+             <string>Имеющаяся валюта:</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Имеющаяся валюта:</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EUR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MTL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ILS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>DKK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SEK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CHF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EEK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>NZD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>KRW</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SKK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TRL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ISK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HKD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LTL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PHP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CZK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CYP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BRL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TRY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>AUD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CAD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MXN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HUF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>THB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ZAR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BGN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IDR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LVL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MYR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>GBP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CNY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SIT</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RUB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SGD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>NOK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RON</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HRK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ROL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>INR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PLN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>USD</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="available_sum">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid transparent;
+border-bottom: 2px ridge #6fb98f;
+color: white;
+height: 30</string>
+            </property>
+            <property name="placeholderText">
+             <string>Имеющаяся сумма:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: white</string>
+            </property>
+            <property name="text">
+             <string>КОНВЕРТЕР ВАЛЮТ</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="required_sum">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid transparent;
+border-bottom: 2px ridge #6fb98f;
+color: white;
+height: 30</string>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Вы получите:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="available_currency_2">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 10px;
+  selection-background-color: rgb(39, 44, 54);
+  border: none;
+  height: 6px;
+  width: 6px;
+  margin: 0px;
+	border-radius: 10px;
+}</string>
+            </property>
+            <property name="currentText">
+             <string>Нужная валюта:</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Нужная валюта:</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EUR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MTL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ILS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>DKK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SEK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CHF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EEK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>NZD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>KRW</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SKK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TRL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ISK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HKD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LTL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PHP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CZK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CYP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BRL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TRY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>AUD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CAD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MXN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HUF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>THB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ZAR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BGN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IDR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LVL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MYR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>GBP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CNY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SIT</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RUB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SGD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>NOK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RON</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HRK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ROL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>INR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PLN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>USD</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="exchange_page"/>
+        <widget class="QWidget" name="settings_page">
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="quit_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: #2c7873;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+	border-radius: 20;
+}
+QPushButton:pressed{
+	background-color: #5d9e9a;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+	border-radius: 20;
+}</string>
+            </property>
+            <property name="text">
+             <string>Выйти из аккаунта</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="profile_page">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="1">
+           <widget class="QLabel" name="profile_picture">
+            <property name="minimumSize">
+             <size>
+              <width>336</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>140</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>icons/user.png</pixmap>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="account_description">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+	border: 2px solid transparent;
+	border-bottom: 2px ridge #6fb98f;
+	color: white;
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="current_email">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+	border: 2px solid transparent;
+	border-bottom: 2px ridge #6fb98f;
+	color: white;
+</string>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">color: white;
+font: 9pt &quot;MS Reference Sans Serif&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Ваш e-mail:      </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">color: white;
+font: 9pt &quot;MS Reference Sans Serif&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Описание счета:      </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QFrame" name="frame_2">
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+	background-color: #004445;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="bill_info">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0" colspan="3">
+            <widget class="QComboBox" name="list_of_accounts">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>MS Reference Sans Serif</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+	color: white;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 10px;
+  selection-background-color: #6fb98f;
+  border: none;
+  height: 6px;
+  width: 6px;
+  margin: 0px;
+	border-radius: 5px;
+}</string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="duplicatesEnabled">
+              <bool>false</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>aSas</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ASasAS</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="change_balance">
+             <property name="maximumSize">
+              <size>
+               <width>21</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>pen.png</normaloff>pen.png</iconset>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="balance_label">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>MS Sans Serif</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="currency_label">
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
