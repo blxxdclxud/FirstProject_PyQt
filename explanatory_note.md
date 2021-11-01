@@ -6,7 +6,7 @@
 
 • MainPage - класс, отвечающий за объект QWidget, содержащий основные страницы(Профиль, Настройки, Диаграмма, График,
 Регулярные платежи, Курс валют, Конвертер валют).
-![images_for_note](img.png)
+![img.png](images_for_note/img.png)
 Функции:
 
 • show_or_hide_existing_password, show_or_hide_created_password, show_or_hide_repeated_password - эти функции показывают
@@ -15,7 +15,7 @@
 
 • go_to_register_page - отвечает за переход на страницк регистрации со страницы входа, при нажатии на кнопку
 QPushButton "Регистрация".
-![images_for_note](img_1.png)
+![img.png](images_for_note/img_1.png)
 
 • go_back_to_sign_in_page - отвечает за переход со страницы регистрации обратно на страницу входа при нажатии на кнопку
 QPushButton.
@@ -41,7 +41,7 @@ QPushButton.
 
 • change_page - отвечает за смену страниц в окне основной форме. При выборе пункта открывается соответствующая страница.
 
-![images_for_note](img_2.png)
+![img.png](images_for_note/img_2.png)
 
 • convert_money - конвертирует валюту при нажатии на кнопку "Конвертировать" на странице конвертера валют.
 
