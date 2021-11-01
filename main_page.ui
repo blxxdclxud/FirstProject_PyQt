@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1384</width>
-    <height>763</height>
+    <height>757</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,175 +26,195 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <widget class="QListWidget" name="list_of_pages">
+      <item row="0" column="1">
+       <widget class="QFrame" name="frame_2">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>300</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Meiryo</family>
-          <pointsize>11</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QListWidget {
-	border: none;
-}
-
-QListWidget:item {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-QListWidget:item:hover {
-    background-color: rgba(111, 185, 143, 0.3);
-	border-radius: 10px;
-	color: #021c1e;
-}
-
-QListWidget:item:!hover {
-    background-color: #021c1e;
-	color: white
-}
-
-QListWidget:item:selected {
-    background-color: #6fb98f;
-	border-radius: 10px;
-    color: white;
-}</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>Диаграмма</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/diagram.png</normaloff>icons/diagram.png</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>График</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/bar</normaloff>icons/bar</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Регулярные платежи</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/regular.png</normaloff>icons/regular.png</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Конвертер валют</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/converter.png</normaloff>icons/converter.png</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Курс валют</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/exchange_rate.png</normaloff>icons/exchange_rate.png</iconset>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Настройки</string>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/settings.png</normaloff>icons/settings.png</iconset>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QListWidget" name="profile_list_widget">
-        <property name="maximumSize">
-         <size>
-          <width>300</width>
           <height>80</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-QListWidget {
-	border: none;
-	border-bottom: 2px ridge #6fb98f;
+         <string notr="true">QFrame {
+	background-color: #004445;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="bill_info">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0" colspan="3">
+            <widget class="QComboBox" name="list_of_accounts">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>MS Reference Sans Serif</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
 	color: white;
 }
-
-QListWidget:item {
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-QListWidget:item:hover {
-    background-color: rgba(111, 185, 143, 0.3);
-	border-radius: 10px;
-	color: #021c1e;
-}
-
-QListWidget:item:!hover {
-    background-color: #021c1e;
-	color: white
-}
-
-</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>Профиль</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>MS Sans Serif</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="background">
-          <brush brushstyle="NoBrush">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>icons/user.png</normaloff>icons/user.png</iconset>
-         </property>
-        </item>
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 10px;
+  selection-background-color: #6fb98f;
+  border: none;
+  height: 6px;
+  width: 6px;
+  margin: 0px;
+	border-radius: 5px;
+}</string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="duplicatesEnabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="change_balance">
+             <property name="maximumSize">
+              <size>
+               <width>21</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>pen.png</normaloff>pen.png</iconset>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="balance_label">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>MS Sans Serif</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="currency_label">
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </widget>
       </item>
       <item row="1" column="1">
        <widget class="QStackedWidget" name="stacked_main_pages">
         <property name="currentIndex">
-         <number>3</number>
+         <number>4</number>
         </property>
         <widget class="QWidget" name="diagramm_page"/>
         <widget class="QWidget" name="schedule_page"/>
@@ -207,281 +227,6 @@ QListWidget:item:!hover {
           <property name="verticalSpacing">
            <number>0</number>
           </property>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="available_currency">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>MS Reference Sans Serif</family>
-              <pointsize>9</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QComboBox:drop-down {
-	background-color: #2c7873;
-}
-QComboBox{
-  color: white;	
-  background-color: #2c7873;
-  padding: 10px;
-  selection-background-color: rgb(39, 44, 54);
-  border: none;
-  height: 6px;
-  width: 6px;
-  margin: 0px;
-	border-radius: 10px;
-}</string>
-            </property>
-            <property name="currentText">
-             <string>Имеющаяся валюта:</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>Имеющаяся валюта:</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>EUR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>MTL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>ILS</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>DKK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>SEK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>CHF</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>EEK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>NZD</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>JPY</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>KRW</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>SKK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>TRL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>ISK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>HKD</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>LTL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>PHP</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>CZK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>CYP</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>BRL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>TRY</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>AUD</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>CAD</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>MXN</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>HUF</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>THB</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>ZAR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>BGN</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>IDR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>LVL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>MYR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>GBP</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>CNY</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>SIT</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>RUB</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>SGD</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>NOK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>RON</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>HRK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>ROL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>INR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>PLN</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>USD</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="available_sum">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>MS Reference Sans Serif</family>
-              <pointsize>9</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid transparent;
-border-bottom: 2px ridge #6fb98f;
-color: white;
-height: 30</string>
-            </property>
-            <property name="placeholderText">
-             <string>Имеющаяся сумма:</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="1">
            <widget class="QLabel" name="label">
             <property name="maximumSize">
@@ -536,34 +281,33 @@ height: 30</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="available_sum">
+            <property name="maximumSize">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>16777215</width>
+              <height>35</height>
              </size>
             </property>
-           </spacer>
-          </item>
-          <item row="0" column="2">
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+              <pointsize>9</pointsize>
+             </font>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid transparent;
+border-bottom: 2px ridge #6fb98f;
+color: white;
+height: 30</string>
             </property>
-           </spacer>
+            <property name="placeholderText">
+             <string>Имеющаяся сумма:</string>
+            </property>
+           </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QComboBox" name="available_currency_2">
+          <item row="1" column="1">
+           <widget class="QComboBox" name="available_currency">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -593,21 +337,16 @@ QComboBox{
 }</string>
             </property>
             <property name="currentText">
-             <string>Нужная валюта:</string>
+             <string>Имеющаяся валюта:</string>
             </property>
             <item>
              <property name="text">
-              <string>Нужная валюта:</string>
+              <string>Имеющаяся валюта:</string>
              </property>
             </item>
             <item>
              <property name="text">
               <string>EUR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>MTL</string>
              </property>
             </item>
             <item>
@@ -632,11 +371,6 @@ QComboBox{
             </item>
             <item>
              <property name="text">
-              <string>EEK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
               <string>NZD</string>
              </property>
             </item>
@@ -652,16 +386,6 @@ QComboBox{
             </item>
             <item>
              <property name="text">
-              <string>SKK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>TRL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
               <string>ISK</string>
              </property>
             </item>
@@ -672,22 +396,12 @@ QComboBox{
             </item>
             <item>
              <property name="text">
-              <string>LTL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
               <string>PHP</string>
              </property>
             </item>
             <item>
              <property name="text">
               <string>CZK</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>CYP</string>
              </property>
             </item>
             <item>
@@ -742,11 +456,6 @@ QComboBox{
             </item>
             <item>
              <property name="text">
-              <string>LVL</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
               <string>MYR</string>
              </property>
             </item>
@@ -758,11 +467,6 @@ QComboBox{
             <item>
              <property name="text">
               <string>CNY</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>SIT</string>
              </property>
             </item>
             <item>
@@ -792,7 +496,233 @@ QComboBox{
             </item>
             <item>
              <property name="text">
-              <string>ROL</string>
+              <string>INR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PLN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>USD</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="required_currency">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 10px;
+  selection-background-color: rgb(39, 44, 54);
+  border: none;
+  height: 6px;
+  width: 6px;
+  margin: 0px;
+	border-radius: 10px;
+}</string>
+            </property>
+            <property name="currentText">
+             <string>Нужная валюта:</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Нужная валюта:</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EUR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ILS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>DKK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SEK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CHF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>NZD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>KRW</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ISK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HKD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PHP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CZK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BRL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TRY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>AUD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CAD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MXN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HUF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>THB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ZAR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BGN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IDR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MYR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>GBP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>CNY</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RUB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SGD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>NOK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RON</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HRK</string>
              </property>
             </item>
             <item>
@@ -812,9 +742,1073 @@ QComboBox{
             </item>
            </widget>
           </item>
+          <item row="5" column="1">
+           <widget class="QPushButton" name="convert_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: #2c7873;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+	border-radius: 20;
+}
+QPushButton:pressed{
+	background-color: #5d9e9a;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+	border-radius: 20;
+}</string>
+            </property>
+            <property name="text">
+             <string>Конертировать</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="exchange_page"/>
+        <widget class="QWidget" name="exchange_page">
+         <layout class="QGridLayout" name="gridLayout_7">
+          <property name="horizontalSpacing">
+           <number>40</number>
+          </property>
+          <item row="0" column="5">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="years_box">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+	color: white;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 8px;
+  selection-background-color: #6fb98f;
+  border: none;
+  height: 10px;
+  margin: 0px;
+}</string>
+            </property>
+            <property name="currentText">
+             <string>1999</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>1999</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2000</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2001</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2002</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2003</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2004</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2005</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2006</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2007</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2008</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2009</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2010</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2011</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2012</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2013</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2014</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2015</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2016</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2017</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2018</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2019</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2020</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2021</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QComboBox" name="months_box">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+	color: white;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  padding: 8px;
+  selection-background-color: #6fb98f;
+  border: none;
+  height: 10px;
+  margin: 0px;
+}</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>01</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>02</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>03</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>04</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>05</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>06</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>07</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>08</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>09</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>11</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>12</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QComboBox" name="days_box">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox:drop-down {
+	background-color: #2c7873;
+	color: white;
+}
+QComboBox{
+  color: white;	
+  background-color: #2c7873;
+  selection-background-color: transparent;
+  padding: 8px;
+  selection-background-color: #6fb98f;
+  border: none;
+  height: 10px;
+  margin: 0px;
+}
+QComboBox:item:selected {
+    border: 2px solid white;
+}</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>6</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>7</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>9</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>11</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>12</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>13</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>14</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>15</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>16</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>17</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>18</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>19</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>20</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>21</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>22</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>23</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>24</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>25</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>26</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>27</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>28</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>29</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>30</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>31</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="6">
+           <widget class="QTableWidget" name="rates_table">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>13</pointsize>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QHeaderView::section {
+    background-color: #021c1e;
+	color: white;
+    padding: 4px;
+    font-size: 14pt;
+    border-style: none;
+	border-bottom: 1px solid #6fb98f;
+}
+QTableWidget {
+	color: white;
+	gridline-color: #99a3a3;
+}</string>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhNone</set>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="tabKeyNavigation">
+             <bool>true</bool>
+            </property>
+            <property name="defaultDropAction">
+             <enum>Qt::TargetMoveAction</enum>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>false</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::NoSelection</enum>
+            </property>
+            <property name="textElideMode">
+             <enum>Qt::ElideRight</enum>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="gridStyle">
+             <enum>Qt::DotLine</enum>
+            </property>
+            <property name="sortingEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+            <property name="cornerButtonEnabled">
+             <bool>true</bool>
+            </property>
+            <property name="rowCount">
+             <number>32</number>
+            </property>
+            <attribute name="horizontalHeaderCascadingSectionResizes">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderMinimumSectionSize">
+             <number>39</number>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderHighlightSections">
+             <bool>true</bool>
+            </attribute>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <column>
+             <property name="text">
+              <string>Валюта</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Стоимость(в рублях)</string>
+             </property>
+            </column>
+            <item row="0" column="0">
+             <property name="text">
+              <string>USD</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="0" column="1">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="1" column="0">
+             <property name="text">
+              <string>JPY</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="1" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="2" column="0">
+             <property name="text">
+              <string>BGN</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="2" column="1">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="3" column="0">
+             <property name="text">
+              <string>CZK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="3" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="4" column="0">
+             <property name="text">
+              <string>DKK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="4" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="5" column="0">
+             <property name="text">
+              <string>GBP</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="5" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="6" column="0">
+             <property name="text">
+              <string>HUF</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="6" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="7" column="0">
+             <property name="text">
+              <string>PLN</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="7" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="8" column="0">
+             <property name="text">
+              <string>RON</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="8" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="9" column="0">
+             <property name="text">
+              <string>SEK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="9" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="10" column="0">
+             <property name="text">
+              <string>CHF</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="10" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="11" column="0">
+             <property name="text">
+              <string>ISK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="11" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="12" column="0">
+             <property name="text">
+              <string>NOK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="12" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="13" column="0">
+             <property name="text">
+              <string>HRK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="13" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="14" column="0">
+             <property name="text">
+              <string>RUB</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="14" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="15" column="0">
+             <property name="text">
+              <string>TRY</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="15" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="16" column="0">
+             <property name="text">
+              <string>AUD</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="16" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="17" column="0">
+             <property name="text">
+              <string>BRL</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="17" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="18" column="0">
+             <property name="text">
+              <string>CAD</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="18" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="19" column="0">
+             <property name="text">
+              <string>CNY</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="19" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="20" column="0">
+             <property name="text">
+              <string>HKD</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="20" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="21" column="0">
+             <property name="text">
+              <string>IDR</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="21" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="22" column="0">
+             <property name="text">
+              <string>ILS</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="22" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="23" column="0">
+             <property name="text">
+              <string>INR</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="23" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="24" column="0">
+             <property name="text">
+              <string>KRW</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="24" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="25" column="0">
+             <property name="text">
+              <string>MXN</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="25" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="26" column="0">
+             <property name="text">
+              <string>MYR</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="26" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="27" column="0">
+             <property name="text">
+              <string>NZD</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="27" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="28" column="0">
+             <property name="text">
+              <string>PHP</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="28" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="29" column="0">
+             <property name="text">
+              <string>SGD</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="29" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="30" column="0">
+             <property name="text">
+              <string>THB</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="30" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="31" column="0">
+             <property name="text">
+              <string>ZAR</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="31" column="1">
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="show_rates_button">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: #2c7873;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+}
+QPushButton:pressed{
+	background-color: #5d9e9a;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+	border-radius: 20;
+}</string>
+            </property>
+            <property name="text">
+             <string>Показать</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
         <widget class="QWidget" name="settings_page">
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="0" column="0">
@@ -984,193 +1978,119 @@ font: 9pt &quot;MS Reference Sans Serif&quot;;</string>
         </widget>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QFrame" name="frame_2">
+      <item row="0" column="0" rowspan="2">
+       <widget class="QListWidget" name="list_of_pages">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>11</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">QFrame {
-	background-color: #004445;
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="1">
-          <layout class="QGridLayout" name="bill_info">
-           <property name="horizontalSpacing">
-            <number>10</number>
-           </property>
-           <item row="0" column="0" colspan="3">
-            <widget class="QComboBox" name="list_of_accounts">
-             <property name="minimumSize">
-              <size>
-               <width>120</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>MS Reference Sans Serif</family>
-               <pointsize>9</pointsize>
-              </font>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QComboBox:drop-down {
-	background-color: #2c7873;
-	color: white;
+         <string notr="true">QListWidget {
+	border: none;
 }
-QComboBox{
-  color: white;	
-  background-color: #2c7873;
-  padding: 10px;
-  selection-background-color: #6fb98f;
-  border: none;
-  height: 6px;
-  width: 6px;
-  margin: 0px;
-	border-radius: 5px;
+
+QListWidget:item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+QListWidget:item:hover {
+    background-color: rgba(111, 185, 143, 0.3);
+	border-radius: 10px;
+	color: #021c1e;
+}
+
+QListWidget:item:!hover {
+    background-color: #021c1e;
+	color: white
+}
+
+QListWidget:item:selected {
+    background-color: #6fb98f;
+	border-radius: 10px;
+    color: white;
 }</string>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>16</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="duplicatesEnabled">
-              <bool>false</bool>
-             </property>
-             <item>
-              <property name="text">
-               <string>aSas</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>ASasAS</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QPushButton" name="change_balance">
-             <property name="maximumSize">
-              <size>
-               <width>21</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>pen.png</normaloff>pen.png</iconset>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="balance_label">
-             <property name="minimumSize">
-              <size>
-               <width>80</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>MS Sans Serif</family>
-               <pointsize>10</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="currency_label">
-             <property name="minimumSize">
-              <size>
-               <width>30</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>30</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="0" column="0">
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="0" column="2">
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
+        </property>
+        <item>
+         <property name="text">
+          <string>Профиль</string>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Диаграмма</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/diagram.png</normaloff>icons/diagram.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>График</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/bar</normaloff>icons/bar</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Регулярные платежи</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/regular.png</normaloff>icons/regular.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Конвертер валют</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/converter.png</normaloff>icons/converter.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Курс валют</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/exchange_rate.png</normaloff>icons/exchange_rate.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Настройки</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/settings.png</normaloff>icons/settings.png</iconset>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>

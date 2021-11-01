@@ -181,7 +181,7 @@ color: white;</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0">
+              <item row="4" column="0">
                <widget class="QLabel" name="password_error_text">
                 <property name="maximumSize">
                  <size>
@@ -233,7 +233,7 @@ color: white;</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
+              <item row="6" column="0">
                <widget class="QPushButton" name="sign_in_button">
                 <property name="font">
                  <font>
@@ -263,7 +263,7 @@ QPushButton:pressed {
                 </property>
                </widget>
               </item>
-              <item row="5" column="0">
+              <item row="8" column="0">
                <widget class="QPushButton" name="sign_up_button">
                 <property name="minimumSize">
                  <size>
@@ -296,6 +296,21 @@ QPushButton:pressed{
                 </property>
                 <property name="flat">
                  <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QCheckBox" name="remember_me_check_box">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #ffffff</string>
+                </property>
+                <property name="text">
+                 <string>Запомнить меня</string>
                 </property>
                </widget>
               </item>
@@ -679,7 +694,7 @@ QPushButton:pressed{
                </widget>
               </item>
               <item row="4" column="1">
-               <widget class="QCheckBox" name="show_new_password_btn">
+               <widget class="QCheckBox" name="show_new_password">
                 <property name="styleSheet">
                  <string notr="true">QCheckBox:indicator:checked{	
 	image: url(./icons/visibility.png);
@@ -694,7 +709,7 @@ QCheckBox:indicator:unchecked{
                </widget>
               </item>
               <item row="6" column="1">
-               <widget class="QCheckBox" name="show_repeated_password_btn">
+               <widget class="QCheckBox" name="show_repeated_password">
                 <property name="styleSheet">
                  <string notr="true">QCheckBox:indicator:checked{	
 	image: url(./icons/visibility.png);
