@@ -85,9 +85,8 @@ class EntrancePage(QWidget, Ui_MainWindow):
             else:
                 file.write("False;")
 
-
         self.close()
-        self.main_page = MainPage(self.connection)
+        self.main_page = MainPage(self.connection, email)
         self.main_page.show()
 
     def check_data_sign_in_page(self):
@@ -156,7 +155,7 @@ class EntrancePage(QWidget, Ui_MainWindow):
 
 
 class MainPage(QWidget, Ui_MainPage):
-    def __init__(self, database, parent=None):
+    def __init__(self, database, cur_email, parent=None):
         super().__init__(parent)
         self.setupUi(self)
 
@@ -165,6 +164,7 @@ class MainPage(QWidget, Ui_MainPage):
         self.convert_button.clicked.connect(self.convert_money)
         self.show_rates_button.clicked.connect(self.show_exchange_rates)
         self.quit_button.clicked.connect(self.go_sign_in_page_from_main_page)
+        self.current_email.setText(f"{cur_email}")
 
         today = datetime.datetime.today()
         self.years_box.setCurrentText(f"{today.year}")
