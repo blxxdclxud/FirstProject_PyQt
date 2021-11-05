@@ -4,8 +4,8 @@ from PyQt5.QtCore import Qt
 from first_pages import Ui_MainWindow
 from string import digits, ascii_lowercase, ascii_uppercase, ascii_letters
 import hashlib
-import sqlite3
 from main_window import MainPage
+from CONSTANTS import *
 
 
 class EntrancePage(QWidget, Ui_MainWindow):
@@ -13,9 +13,6 @@ class EntrancePage(QWidget, Ui_MainWindow):
         super().__init__(parent)
         self.setupUi(self)
         self.move(0, 0)
-
-        self.connection = sqlite3.connect("accounts_db.db")
-        self.cursor = self.connection.cursor()
 
         try:
             with open("remember_me_file.txt", 'r', encoding='utf8') as file:
@@ -80,18 +77,17 @@ class EntrancePage(QWidget, Ui_MainWindow):
                 file.write(f"True;{email};{password}")
             else:
                 file.write("False;")
-
         self.close()
-        self.main_page = MainPage(self.connection, email)
+        self.main_page = MainPage(email)
         self.main_page.show()
 
     def check_data_sign_in_page(self):
         password = self.input_password.text()
         email = self.input_email.text()
-        list_of_emails = self.cursor.execute("""SELECT email FROM accounts
+        list_of_emails = CURSOR.execute("""SELECT email FROM accounts
                         WHERE email = ?""", (email,)).fetchall()
         if len(list_of_emails) != 0 and hashlib.sha1(password.encode()).hexdigest() == \
-                self.cursor.execute("""SELECT password FROM accounts
+                CURSOR.execute("""SELECT password FROM accounts
                 WHERE email = ?""", (email,)).fetchone()[0]:
             return True
         else:
@@ -137,12 +133,13 @@ class EntrancePage(QWidget, Ui_MainWindow):
             self.error_repeat_password.setText("Пароли не совпадают")
             return False
 
-        self.cursor.execute("""INSERT INTO accounts(email, password) VALUES(?, ?)""",
-                            (email, hashlib.sha1(password_1.encode()).hexdigest()))
-        self.connection.commit()
+        CURSOR.execute("""INSERT INTO accounts(email, password) VALUES(?, ?)""",
+                       (email, hashlib.sha1(password_1.encode()).hexdigest()))
+        CONNECTION.commit()
         return True
 
-    def check_email_correctness(self, mail):
+    @staticmethod
+    def check_email_correctness(mail):
         if '@' not in mail or mail[0] == '@' or mail[-1] == '@':
             return False
         if '.' not in mail or mail[0] == '.' or mail[-1] == '.':

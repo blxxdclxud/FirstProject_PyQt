@@ -391,7 +391,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.logo.sizePolicy().hasHeightForWidth())
         self.logo.setSizePolicy(sizePolicy)
         self.logo.setText("")
-        self.logo.setPixmap(QtGui.QPixmap("../../Downloads/stats (3).png"))
+        self.logo.setPixmap(QtGui.QPixmap("icons/logo.png"))
         self.logo.setAlignment(QtCore.Qt.AlignCenter)
         self.logo.setObjectName("logo")
         self.verticalLayout.addWidget(self.logo)

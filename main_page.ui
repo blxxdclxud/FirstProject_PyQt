@@ -214,11 +214,107 @@ QComboBox{
       <item row="1" column="1">
        <widget class="QStackedWidget" name="stacked_main_pages">
         <property name="currentIndex">
-         <number>4</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="diagramm_page"/>
         <widget class="QWidget" name="schedule_page"/>
-        <widget class="QWidget" name="regular_page"/>
+        <widget class="QWidget" name="regular_page">
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="create_regular_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>13</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: #6fb98f;
+}
+
+QPushButton::pressed {
+	color: #2c7873
+}</string>
+            </property>
+            <property name="text">
+             <string>Создать</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/plus.png</normaloff>icons/plus.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QListWidget" name="regular_list">
+            <property name="styleSheet">
+             <string notr="true">QListWidget {
+	border: none;
+	font-size: 16px;
+
+}
+
+QListWidget:item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+QListWidget:item:hover {
+    background-color: rgba(111, 185, 143, 0.3);
+	border-radius: 10px;
+	color: #021c1e;
+}
+
+QListWidget:item:!hover {
+    background-color: #021c1e;
+	color: white
+}
+
+QListWidget:item:selected {
+    background-color: #6fb98f;
+	border-radius: 10px;
+    color: white;
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="delete_regular_button">
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/bin.png</normaloff>icons/bin.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
         <widget class="QWidget" name="converter_page">
          <layout class="QGridLayout" name="gridLayout_3">
           <property name="horizontalSpacing">
@@ -831,38 +927,8 @@ QComboBox{
 }</string>
             </property>
             <property name="currentText">
-             <string>1999</string>
+             <string>2005</string>
             </property>
-            <item>
-             <property name="text">
-              <string>1999</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>2000</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>2001</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>2002</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>2003</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>2004</string>
-             </property>
-            </item>
             <item>
              <property name="text">
               <string>2005</string>
@@ -1219,6 +1285,32 @@ QComboBox:item:selected {
             </item>
            </widget>
           </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="show_rates_button">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>26</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: #2c7873;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+}
+QPushButton:pressed{
+	background-color: #5d9e9a;
+	color: #021c1e;
+	border: 2px solid #2c7873;
+	border-radius: 20;
+}</string>
+            </property>
+            <property name="text">
+             <string>Показать</string>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="0" colspan="6">
            <widget class="QTableWidget" name="rates_table">
             <property name="enabled">
@@ -1249,7 +1341,10 @@ QComboBox:item:selected {
 }
 QTableWidget {
 	color: white;
-	gridline-color: #99a3a3;
+
+}
+QTableWidget:item {
+	border-bottom: 1px solid #99a3a3;
 }</string>
             </property>
             <property name="inputMethodHints">
@@ -1286,7 +1381,7 @@ QTableWidget {
              <bool>true</bool>
             </property>
             <property name="gridStyle">
-             <enum>Qt::DotLine</enum>
+             <enum>Qt::SolidLine</enum>
             </property>
             <property name="sortingEnabled">
              <bool>false</bool>
@@ -1298,13 +1393,22 @@ QTableWidget {
              <bool>true</bool>
             </property>
             <property name="rowCount">
-             <number>32</number>
+             <number>31</number>
             </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
             <attribute name="horizontalHeaderCascadingSectionResizes">
              <bool>false</bool>
             </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>true</bool>
+            </attribute>
             <attribute name="horizontalHeaderMinimumSectionSize">
              <number>39</number>
+            </attribute>
+            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+             <bool>false</bool>
             </attribute>
             <attribute name="horizontalHeaderStretchLastSection">
              <bool>true</bool>
@@ -1346,7 +1450,6 @@ QTableWidget {
             <row/>
             <row/>
             <row/>
-            <row/>
             <column>
              <property name="text">
               <string>Валюта</string>
@@ -1354,12 +1457,15 @@ QTableWidget {
             </column>
             <column>
              <property name="text">
-              <string>Стоимость(в рублях)</string>
+              <string>Стоимость(в рублях)       </string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
              </property>
             </column>
             <item row="0" column="0">
              <property name="text">
-              <string>USD</string>
+              <string>EUR</string>
              </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
@@ -1375,20 +1481,23 @@ QTableWidget {
             </item>
             <item row="1" column="0">
              <property name="text">
-              <string>JPY</string>
+              <string>USD</string>
              </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="1" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="2" column="0">
              <property name="text">
-              <string>BGN</string>
+              <string>JPY</string>
              </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
@@ -1404,31 +1513,53 @@ QTableWidget {
             </item>
             <item row="3" column="0">
              <property name="text">
-              <string>CZK</string>
+              <string>BGN</string>
              </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="3" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="4" column="0">
              <property name="text">
-              <string>DKK</string>
+              <string>CZK</string>
              </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="4" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="5" column="0">
+             <property name="text">
+              <string>GKK</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="5" column="1">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="textAlignment">
+              <set>AlignTrailing|AlignVCenter</set>
+             </property>
+            </item>
+            <item row="6" column="0">
              <property name="text">
               <string>GBP</string>
              </property>
@@ -1436,12 +1567,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="5" column="1">
+            <item row="6" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="6" column="0">
+            <item row="7" column="0">
              <property name="text">
               <string>HUF</string>
              </property>
@@ -1449,12 +1583,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="6" column="1">
+            <item row="7" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="7" column="0">
+            <item row="8" column="0">
              <property name="text">
               <string>PLN</string>
              </property>
@@ -1462,12 +1599,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="7" column="1">
+            <item row="8" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="8" column="0">
+            <item row="9" column="0">
              <property name="text">
               <string>RON</string>
              </property>
@@ -1475,12 +1615,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="8" column="1">
+            <item row="9" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="9" column="0">
+            <item row="10" column="0">
              <property name="text">
               <string>SEK</string>
              </property>
@@ -1488,12 +1631,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="9" column="1">
+            <item row="10" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="10" column="0">
+            <item row="11" column="0">
              <property name="text">
               <string>CHF</string>
              </property>
@@ -1501,12 +1647,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="10" column="1">
+            <item row="11" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="11" column="0">
+            <item row="12" column="0">
              <property name="text">
               <string>ISK</string>
              </property>
@@ -1514,12 +1663,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="11" column="1">
+            <item row="12" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="12" column="0">
+            <item row="13" column="0">
              <property name="text">
               <string>NOK</string>
              </property>
@@ -1527,12 +1679,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="12" column="1">
+            <item row="13" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="13" column="0">
+            <item row="14" column="0">
              <property name="text">
               <string>HRK</string>
              </property>
@@ -1540,20 +1695,10 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="13" column="1">
-             <property name="textAlignment">
-              <set>AlignTrailing|AlignVCenter</set>
-             </property>
-            </item>
-            <item row="14" column="0">
-             <property name="text">
-              <string>RUB</string>
-             </property>
-             <property name="textAlignment">
-              <set>AlignTrailing|AlignVCenter</set>
-             </property>
-            </item>
             <item row="14" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1567,6 +1712,9 @@ QTableWidget {
              </property>
             </item>
             <item row="15" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1580,6 +1728,9 @@ QTableWidget {
              </property>
             </item>
             <item row="16" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1593,6 +1744,9 @@ QTableWidget {
              </property>
             </item>
             <item row="17" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1606,6 +1760,9 @@ QTableWidget {
              </property>
             </item>
             <item row="18" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1619,6 +1776,9 @@ QTableWidget {
              </property>
             </item>
             <item row="19" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1632,6 +1792,9 @@ QTableWidget {
              </property>
             </item>
             <item row="20" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
@@ -1645,24 +1808,14 @@ QTableWidget {
              </property>
             </item>
             <item row="21" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
             <item row="22" column="0">
-             <property name="text">
-              <string>ILS</string>
-             </property>
-             <property name="textAlignment">
-              <set>AlignTrailing|AlignVCenter</set>
-             </property>
-            </item>
-            <item row="22" column="1">
-             <property name="textAlignment">
-              <set>AlignTrailing|AlignVCenter</set>
-             </property>
-            </item>
-            <item row="23" column="0">
              <property name="text">
               <string>INR</string>
              </property>
@@ -1670,12 +1823,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="23" column="1">
+            <item row="22" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="24" column="0">
+            <item row="23" column="0">
              <property name="text">
               <string>KRW</string>
              </property>
@@ -1683,12 +1839,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="24" column="1">
+            <item row="23" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="25" column="0">
+            <item row="24" column="0">
              <property name="text">
               <string>MXN</string>
              </property>
@@ -1696,12 +1855,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="25" column="1">
+            <item row="24" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="26" column="0">
+            <item row="25" column="0">
              <property name="text">
               <string>MYR</string>
              </property>
@@ -1709,12 +1871,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="26" column="1">
+            <item row="25" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="27" column="0">
+            <item row="26" column="0">
              <property name="text">
               <string>NZD</string>
              </property>
@@ -1722,12 +1887,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="27" column="1">
+            <item row="26" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="28" column="0">
+            <item row="27" column="0">
              <property name="text">
               <string>PHP</string>
              </property>
@@ -1735,12 +1903,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="28" column="1">
+            <item row="27" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="29" column="0">
+            <item row="28" column="0">
              <property name="text">
               <string>SGD</string>
              </property>
@@ -1748,12 +1919,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="29" column="1">
+            <item row="28" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="30" column="0">
+            <item row="29" column="0">
              <property name="text">
               <string>THB</string>
              </property>
@@ -1761,12 +1935,15 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="30" column="1">
+            <item row="29" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="31" column="0">
+            <item row="30" column="0">
              <property name="text">
               <string>ZAR</string>
              </property>
@@ -1774,37 +1951,14 @@ QTableWidget {
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-            <item row="31" column="1">
+            <item row="30" column="1">
+             <property name="text">
+              <string/>
+             </property>
              <property name="textAlignment">
               <set>AlignTrailing|AlignVCenter</set>
              </property>
             </item>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QPushButton" name="show_rates_button">
-            <property name="minimumSize">
-             <size>
-              <width>70</width>
-              <height>26</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	background-color: #2c7873;
-	color: #021c1e;
-	border: 2px solid #2c7873;
-}
-QPushButton:pressed{
-	background-color: #5d9e9a;
-	color: #021c1e;
-	border: 2px solid #2c7873;
-	border-radius: 20;
-}</string>
-            </property>
-            <property name="text">
-             <string>Показать</string>
-            </property>
            </widget>
           </item>
          </layout>
@@ -2052,7 +2206,7 @@ QListWidget:item:selected {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>icons/bar</normaloff>icons/bar</iconset>
+           <normaloff>icons/bar.png</normaloff>icons/bar.png</iconset>
          </property>
         </item>
         <item>

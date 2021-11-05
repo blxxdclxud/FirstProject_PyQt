@@ -869,7 +869,7 @@ QPushButton:pressed {
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>../../Downloads/stats (3).png</pixmap>
+           <pixmap>icons/logo.png</pixmap>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
