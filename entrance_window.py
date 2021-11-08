@@ -69,8 +69,13 @@ class EntrancePage(QWidget, Ui_MainWindow):
             if not self.check_data_sign_up_page():
                 return
 
-        email = self.input_email.text()
-        password = self.input_password.text()
+        page_idx = self.stacked_widget.currentIndex()
+        if page_idx == 0:
+            email = self.input_email.text()
+            password = self.input_password.text()
+        else:
+            email = self.create_email.text()
+            password = self.create_password.text()
 
         with open("remember_me_file.txt", 'w', encoding='utf8') as file:
             if self.remember_me_check_box.isChecked():

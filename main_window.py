@@ -39,6 +39,7 @@ class MainPage(QWidget, Ui_MainPage):
             assert CURSOR.execute("""SELECT detailId FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchall()
         except:
             CURSOR.execute("""INSERT INTO details (detailId) VALUES(?)""", (CONSTANTS.ID,))
+            CONNECTION.commit()
 
         self.list_of_pages.itemSelectionChanged.connect(self.change_page)
         self.convert_button.clicked.connect(self.convert_money)
