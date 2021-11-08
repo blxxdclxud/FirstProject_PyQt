@@ -31,15 +31,15 @@ class MainPage(QWidget, Ui_MainPage):
                                                (CONSTANTS.ID,))
         CONSTANTS.INCOME = CURSOR.execute("""SELECT income FROM details WHERE detailId = ?""",
                                           (CONSTANTS.ID,))
-        self.show_expenditure_pie()
-        self.show_income_pie()
-        show_regular_list(self)
-        self.show_description()
         try:
             assert CURSOR.execute("""SELECT detailId FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchall()
         except:
             CURSOR.execute("""INSERT INTO details (detailId) VALUES(?)""", (CONSTANTS.ID,))
             CONNECTION.commit()
+        self.show_expenditure_pie()
+        self.show_income_pie()
+        show_regular_list(self)
+        self.show_description()
 
         self.list_of_pages.itemSelectionChanged.connect(self.change_page)
         self.convert_button.clicked.connect(self.convert_money)
@@ -61,7 +61,7 @@ class MainPage(QWidget, Ui_MainPage):
         self.list_of_accounts.addItem(CURSOR.execute("""SELECT name FROM details WHERE detailId = ?""",
                                                      (CONSTANTS.ID,)).fetchone()[0])
         self.balance_label.setText(str(CURSOR.execute("""SELECT amount FROM details WHERE detailId = ?""",
-                                                  (CONSTANTS.ID,)).fetchone()[0]))
+                                                      (CONSTANTS.ID,)).fetchone()[0]))
 
     def check_accounts_list(self):
         if self.list_of_accounts.count() == 0:
@@ -262,6 +262,8 @@ class MainPage(QWidget, Ui_MainPage):
 
         sc = MplCanvas(self)
 
+        if not values:
+            return
         sc.axes.pie(values, wedgeprops=dict(width=0.5, edgecolor='#004445'), colors=colors_list)
         sc.axes.text(0, -1.2, f"Сумма: {text}", color='w', horizontalalignment='center', verticalalignment='top')
         self.framelayout.addWidget(sc)
