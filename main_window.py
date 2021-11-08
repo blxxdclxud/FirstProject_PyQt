@@ -64,13 +64,16 @@ class MainPage(QWidget, Ui_MainPage):
                                                       (CONSTANTS.ID,)).fetchone()[0]))
 
     def check_accounts_list(self):
-        if self.list_of_accounts.count() == 0:
+        bill_name = CURSOR.execute("""SELECT name FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchone()[0]
+        if not bill_name:
             name, ok_press = QInputDialog.getText(self, "Добавление счета", "Введите имя счета")
 
             if ok_press:
                 self.list_of_accounts.addItem(name)
                 CURSOR.execute("""UPDATE details SET name = ? WHERE detailId = ?""", (name, CONSTANTS.ID))
                 CONNECTION.commit()
+        else:
+            self.list_of_accounts.addItem(bill_name)
 
     def go_sign_in_page_from_main_page(self):
         self.close()
