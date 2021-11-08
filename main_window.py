@@ -216,22 +216,54 @@ class MainPage(QWidget, Ui_MainPage):
         show_regular_list(self)
 
     def show_expenditure_pie(self):
+        percents = []
+
+        categories = ["Кафе", "Здоровье", "Продукты", "Транспорт", "Другое"]
+
+        data = CURSOR.execute("""SELECT * FROM expenditures WHERE expenditureId = ?""", (CONSTANTS.ID,)).fetchall()
+        expenditure = CURSOR.execute("""SELECT expenditure FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchone()[0]
+        used_categories = [i[2] for i in data]
+
+        for idx, value in enumerate(categories):
+            if value not in used_categories:
+                percents.append(0)
+            else:
+                index_of_value = used_categories.index(value)
+                percent = data[index_of_value][1] / expenditure * 100
+                percents.append(percent)
+
         colors = ['#E2CF2C', '#FF2646', '#8FCCFB', '#1C98FF', '#FF22A1']
-        self.construct_pie_plot([100], colors)
+        self.construct_pie_plot(percents, colors, expenditure)
         self.frame_for_expenditures_pie.setLayout(self.framelayout)
 
     def show_income_pie(self):
+        percents = []
+
+        data = CURSOR.execute("""SELECT * FROM incomes WHERE incomeId = ?""", (CONSTANTS.ID,)).fetchall()
+
+        income = CURSOR.execute("""SELECT income FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchone()[0]
+        categories = ["Зарплата", "Подарок", "Другое"]
+        used_categories = [i[2] for i in data]
+
+        for idx, value in enumerate(categories):
+            if value not in used_categories:
+                percents.append(0)
+            else:
+                index_of_value = used_categories.index(value)
+                percent = data[index_of_value][1] / income * 100
+                percents.append(percent)
+
         colors = ['#84A77C', '#28C887', '#FF22A1']
-        self.construct_pie_plot([100], colors)
+        self.construct_pie_plot(percents, colors, income)
         self.frame_for_incomes_pie.setLayout(self.framelayout)
 
-    def construct_pie_plot(self, values, colors_list):
+    def construct_pie_plot(self, values, colors_list, text):
         self.framelayout = QGridLayout()
 
         sc = MplCanvas(self)
 
         sc.axes.pie(values, wedgeprops=dict(width=0.5, edgecolor='#004445'), colors=colors_list)
-        sc.axes.text(0, 0, 'a', color='w', horizontalalignment='center', verticalalignment='center')
+        sc.axes.text(0, -1.2, f"Сумма: {text}", color='w', horizontalalignment='center', verticalalignment='top')
         self.framelayout.addWidget(sc)
         self.frame_for_expenditures_pie.setLayout(self.framelayout)
 
