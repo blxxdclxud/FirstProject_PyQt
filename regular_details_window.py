@@ -6,12 +6,22 @@ from dateutil.relativedelta import relativedelta
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QDoubleValidator
 from CONSTANTS import *
+import CONSTANTS
+
+
+def show_regular_list(self):
+    self.regular_list.clear()
+    payments = CURSOR.execute(
+        f"""SELECT name, category, amount FROM payment_details WHERE paymentId = {CONSTANTS.ID}""").fetchall()
+    self.regular_list.addItems([f"{i[0]}\t{i[1]}\t{i[-1]}" for i in payments])
 
 
 class PaymentDetails(QWidget, Ui_RegularWindow):
-    def __init__(self):
+    def __init__(self, main):
         super().__init__()
         self.setupUi(self)
+
+        self.main = main
 
         current_day = datetime.date.today()
         self.start_date.setDate(QDate(current_day.day, current_day.month, current_day.year))
@@ -22,7 +32,6 @@ class PaymentDetails(QWidget, Ui_RegularWindow):
         self.radio_group.buttonClicked.connect(self.type)
         self.frequency = self.frequency_box.currentText()
         self.date = self.start_date.date()
-        self.time = self.start_time.time()
         self.category = self.category_box.currentText()
 
         self.create_payment.clicked.connect(self.create)
@@ -35,7 +44,7 @@ class PaymentDetails(QWidget, Ui_RegularWindow):
 
     def create(self):
         if not self.type_of_payment or not self.payment_amount.text() or not self.payment_name.text():
-            self.error_msg()
+            self.error_msg("Заполните все поля")
         else:
             self.name = self.payment_name.text()
             self.amount = round(float(self.payment_amount.text().replace(',', '.')), 2)
@@ -43,12 +52,13 @@ class PaymentDetails(QWidget, Ui_RegularWindow):
             self.save_to_db()
 
             self.close()
+        show_regular_list(self.main)
 
     @staticmethod
-    def error_msg():
+    def error_msg(text):
         msg = QMessageBox()
         msg.setWindowFlags(Qt.FramelessWindowHint)
-        msg.setText("Заполните все поля")
+        msg.setText(text)
         msg.setIcon(QMessageBox.Warning)
         msg.setStyleSheet("""background-color: #021c1e;
                                             color: #ffffff;
@@ -56,15 +66,14 @@ class PaymentDetails(QWidget, Ui_RegularWindow):
         msg.exec_()
 
     def save_to_db(self):
-        que = "INSERT INTO payment_details(amount, category, type, name, time, date, frequency) " \
+        que = "INSERT INTO payment_details(paymentId, amount, category, type, name, date, frequency) " \
               "VALUES"
-        que += f"({self.amount}, '{self.category}', '{self.type_of_payment}', '{self.name}', " \
-               f"'{self.time.toString()}', '{self.date.toString('yyyy-MM-dd')}', '{self.frequency}')"
+        que += f"('{CONSTANTS.ID}', {self.amount}, '{self.category}', '{self.type_of_payment}', '{self.name}', " \
+               f"'{self.date.toString('yyyy-MM-dd')}', '{self.frequency}')"
 
-        CURSOR.execute(que)
-
-        id_from_payment = CURSOR.execute("""SELECT paymentId FROM payment_details
-                                    WHERE name = ?""", (self.name,)).fetchone()[0]
-        CURSOR.execute("""INSERT INTO regular_payments(paymentId) VALUES(?)""", (id_from_payment,))
+        try:
+            CURSOR.execute(que)
+        except:
+            self.error_msg("Платеж с таким именем уже существует")
 
         CONNECTION.commit()

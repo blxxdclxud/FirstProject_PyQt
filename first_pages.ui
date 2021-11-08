@@ -14,7 +14,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #021c1e</string>
+   <string notr="true">background-color: #021c1e;
+</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
@@ -750,7 +751,8 @@ QPushButton:pressed {
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../../Documents/Minigram/static/left_arrow.svg</normaloff>../../Documents/Minigram/static/left_arrow.svg</iconset>
+                  <normaloff>icons/arrow.png</normaloff>
+                  <activeon>icons/arrow_p.png</activeon>icons/arrow.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>

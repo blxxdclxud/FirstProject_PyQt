@@ -15,7 +15,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1384, 763)
-        MainWindow.setStyleSheet("background-color: #021c1e")
+        MainWindow.setStyleSheet("background-color: #021c1e;\n"
+"")
         self.gridLayout_2 = QtWidgets.QGridLayout(MainWindow)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.mw_grid = QtWidgets.QGridLayout()
@@ -356,7 +357,8 @@ class Ui_MainWindow(object):
 "")
         self.go_back_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../Documents/Minigram/static/left_arrow.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/arrow_p.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.go_back_button.setIcon(icon)
         self.go_back_button.setIconSize(QtCore.QSize(24, 24))
         self.go_back_button.setFlat(False)

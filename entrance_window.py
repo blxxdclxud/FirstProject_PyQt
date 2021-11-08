@@ -80,6 +80,7 @@ class EntrancePage(QWidget, Ui_MainWindow):
         self.close()
         self.main_page = MainPage(email)
         self.main_page.show()
+        self.main_page.check_accounts_list()
 
     def check_data_sign_in_page(self):
         password = self.input_password.text()

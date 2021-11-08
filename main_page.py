@@ -15,7 +15,9 @@ class Ui_MainPage(object):
     def setupUi(self, MainPage):
         MainPage.setObjectName("MainPage")
         MainPage.resize(1384, 757)
-        MainPage.setStyleSheet("background-color: #021c1e")
+        MainPage.setStyleSheet("background-color: #021c1e;\n"
+"color: white;\n"
+"")
         self.gridLayout = QtWidgets.QGridLayout(MainPage)
         self.gridLayout.setObjectName("gridLayout")
         self.frame = QtWidgets.QFrame(MainPage)
@@ -66,15 +68,15 @@ class Ui_MainPage(object):
         self.list_of_accounts.setDuplicatesEnabled(False)
         self.list_of_accounts.setObjectName("list_of_accounts")
         self.bill_info.addWidget(self.list_of_accounts, 0, 0, 1, 3)
-        self.change_balance = QtWidgets.QPushButton(self.frame_2)
-        self.change_balance.setMaximumSize(QtCore.QSize(21, 23))
-        self.change_balance.setText("")
+        self.add_balance = QtWidgets.QPushButton(self.frame_2)
+        self.add_balance.setMaximumSize(QtCore.QSize(21, 23))
+        self.add_balance.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("pen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.change_balance.setIcon(icon)
-        self.change_balance.setFlat(True)
-        self.change_balance.setObjectName("change_balance")
-        self.bill_info.addWidget(self.change_balance, 1, 2, 1, 1)
+        icon.addPixmap(QtGui.QPixmap("icons/pen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.add_balance.setIcon(icon)
+        self.add_balance.setFlat(True)
+        self.add_balance.setObjectName("add_balance")
+        self.bill_info.addWidget(self.add_balance, 1, 2, 1, 1)
         self.balance_label = QtWidgets.QLabel(self.frame_2)
         self.balance_label.setMinimumSize(QtCore.QSize(80, 0))
         font = QtGui.QFont()
@@ -97,7 +99,6 @@ class Ui_MainPage(object):
         font.setWeight(75)
         self.currency_label.setFont(font)
         self.currency_label.setStyleSheet("color: white")
-        self.currency_label.setText("")
         self.currency_label.setObjectName("currency_label")
         self.bill_info.addWidget(self.currency_label, 1, 1, 1, 1)
         self.gridLayout_4.addLayout(self.bill_info, 0, 1, 1, 1)
@@ -110,10 +111,184 @@ class Ui_MainPage(object):
         self.stacked_main_pages.setObjectName("stacked_main_pages")
         self.diagramm_page = QtWidgets.QWidget()
         self.diagramm_page.setObjectName("diagramm_page")
+        self.gridLayout_9 = QtWidgets.QGridLayout(self.diagramm_page)
+        self.gridLayout_9.setObjectName("gridLayout_9")
+        self.tab_widget = QtWidgets.QTabWidget(self.diagramm_page)
+        self.tab_widget.setStyleSheet("QTabWidget::pane {\n"
+"  border: none ;\n"
+"  top:-1px; \n"
+"  background: #021c1e; \n"
+"} \n"
+"\n"
+"QTabBar::tab {\n"
+"  background: transparent; \n"
+"  color: white;\n"
+"  font-size: 13px;\n"
+"  border: none; \n"
+"  padding: 10px;\n"
+" width: 80px;\n"
+"} \n"
+"\n"
+"QTabBar::tab:selected { \n"
+"  background: transparent; \n"
+"  border: none;\n"
+"  color: #6fb98f;\n"
+"  border-bottom: 2px ridge #6fb98f;\n"
+"}")
+        self.tab_widget.setTabPosition(QtWidgets.QTabWidget.North)
+        self.tab_widget.setTabShape(QtWidgets.QTabWidget.Rounded)
+        self.tab_widget.setElideMode(QtCore.Qt.ElideLeft)
+        self.tab_widget.setObjectName("tab_widget")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.tab)
+        self.gridLayout_10.setObjectName("gridLayout_10")
+        self.frame_for_expenditures_pie = QtWidgets.QFrame(self.tab)
+        self.frame_for_expenditures_pie.setMinimumSize(QtCore.QSize(200, 200))
+        self.frame_for_expenditures_pie.setMaximumSize(QtCore.QSize(200, 200))
+        self.frame_for_expenditures_pie.setStyleSheet("background-color:  #004445;\n"
+"border-radius: 20;")
+        self.frame_for_expenditures_pie.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_for_expenditures_pie.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_for_expenditures_pie.setObjectName("frame_for_expenditures_pie")
+        self.gridLayout_10.addWidget(self.frame_for_expenditures_pie, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_10.addItem(spacerItem2, 0, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_10.addItem(spacerItem3, 0, 2, 1, 1)
+        self.list_for_expenditures = QtWidgets.QListWidget(self.tab)
+        self.list_for_expenditures.setMinimumSize(QtCore.QSize(400, 0))
+        self.list_for_expenditures.setMaximumSize(QtCore.QSize(400, 16777215))
+        self.list_for_expenditures.setStyleSheet("QListWidget {\n"
+"    border: none;\n"
+"    font-size: 16px;\n"
+"    background-color: #004445;\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"QListWidget:item {\n"
+"    padding-top: 10px;\n"
+"    padding-bottom: 10px;\n"
+"}\n"
+"\n"
+"QListWidget:item:hover {\n"
+"    background-color: rgba(111, 185, 143, 0.3);\n"
+"    border-radius: 10px;\n"
+"    color: #021c1e;\n"
+"}\n"
+"\n"
+"QListWidget:item:!hover {\n"
+"    background-color: #021c1e;\n"
+"    color: white\n"
+"}\n"
+"\n"
+"QListWidget:item:selected {\n"
+"    background-color: #6fb98f;\n"
+"    border-radius: 10px;\n"
+"    color: white;\n"
+"}")
+        self.list_for_expenditures.setObjectName("list_for_expenditures")
+        self.gridLayout_10.addWidget(self.list_for_expenditures, 1, 1, 1, 1)
+        self.add_expenditure_button = QtWidgets.QPushButton(self.tab)
+        self.add_expenditure_button.setMinimumSize(QtCore.QSize(50, 50))
+        self.add_expenditure_button.setMaximumSize(QtCore.QSize(50, 50))
+        self.add_expenditure_button.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.add_expenditure_button.setFont(font)
+        self.add_expenditure_button.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.add_expenditure_button.setStyleSheet("QPushButton{\n"
+"    background-color: #2c7873;\n"
+"    color: #021c1e;\n"
+"    border: 2px solid #2c7873;\n"
+"    border-radius: 25;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: #5d9e9a;\n"
+"    color: #021c1e;\n"
+"    border: 2px solid #2c7873;\n"
+"    border-radius: 25;\n"
+"}")
+        self.add_expenditure_button.setFlat(True)
+        self.add_expenditure_button.setObjectName("add_expenditure_button")
+        self.gridLayout_10.addWidget(self.add_expenditure_button, 1, 2, 1, 1, QtCore.Qt.AlignRight|QtCore.Qt.AlignBottom)
+        self.tab_widget.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.gridLayout_11 = QtWidgets.QGridLayout(self.tab_2)
+        self.gridLayout_11.setObjectName("gridLayout_11")
+        self.add_income_button = QtWidgets.QPushButton(self.tab_2)
+        self.add_income_button.setMinimumSize(QtCore.QSize(50, 50))
+        self.add_income_button.setMaximumSize(QtCore.QSize(50, 50))
+        self.add_income_button.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.add_income_button.setFont(font)
+        self.add_income_button.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.add_income_button.setStyleSheet("QPushButton{\n"
+"    background-color: #2c7873;\n"
+"    color: #021c1e;\n"
+"    border: 2px solid #2c7873;\n"
+"    border-radius: 25;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: #5d9e9a;\n"
+"    color: #021c1e;\n"
+"    border: 2px solid #2c7873;\n"
+"    border-radius: 25;\n"
+"}")
+        self.add_income_button.setFlat(True)
+        self.add_income_button.setObjectName("add_income_button")
+        self.gridLayout_11.addWidget(self.add_income_button, 1, 2, 1, 1, QtCore.Qt.AlignRight|QtCore.Qt.AlignBottom)
+        self.list_for_incomes = QtWidgets.QListWidget(self.tab_2)
+        self.list_for_incomes.setMinimumSize(QtCore.QSize(400, 0))
+        self.list_for_incomes.setMaximumSize(QtCore.QSize(400, 16777215))
+        self.list_for_incomes.setStyleSheet("QListWidget {\n"
+"    border: none;\n"
+"    font-size: 16px;\n"
+"    background-color: #004445;\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"QListWidget:item {\n"
+"    padding-top: 10px;\n"
+"    padding-bottom: 10px;\n"
+"}\n"
+"\n"
+"QListWidget:item:hover {\n"
+"    background-color: rgba(111, 185, 143, 0.3);\n"
+"    border-radius: 10px;\n"
+"    color: #021c1e;\n"
+"}\n"
+"\n"
+"QListWidget:item:!hover {\n"
+"    background-color: #021c1e;\n"
+"    color: white\n"
+"}\n"
+"\n"
+"QListWidget:item:selected {\n"
+"    background-color: #6fb98f;\n"
+"    border-radius: 10px;\n"
+"    color: white;\n"
+"}")
+        self.list_for_incomes.setObjectName("list_for_incomes")
+        self.gridLayout_11.addWidget(self.list_for_incomes, 1, 1, 1, 1)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_11.addItem(spacerItem4, 0, 2, 1, 1)
+        self.frame_for_incomes_pie = QtWidgets.QFrame(self.tab_2)
+        self.frame_for_incomes_pie.setMinimumSize(QtCore.QSize(200, 200))
+        self.frame_for_incomes_pie.setMaximumSize(QtCore.QSize(200, 200))
+        self.frame_for_incomes_pie.setStyleSheet("background-color:  #004445;\n"
+"border-radius: 20;")
+        self.frame_for_incomes_pie.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_for_incomes_pie.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_for_incomes_pie.setObjectName("frame_for_incomes_pie")
+        self.gridLayout_11.addWidget(self.frame_for_incomes_pie, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_11.addItem(spacerItem5, 0, 0, 1, 1)
+        self.tab_widget.addTab(self.tab_2, "")
+        self.gridLayout_9.addWidget(self.tab_widget, 0, 0, 1, 1)
         self.stacked_main_pages.addWidget(self.diagramm_page)
-        self.schedule_page = QtWidgets.QWidget()
-        self.schedule_page.setObjectName("schedule_page")
-        self.stacked_main_pages.addWidget(self.schedule_page)
         self.regular_page = QtWidgets.QWidget()
         self.regular_page.setObjectName("regular_page")
         self.gridLayout_8 = QtWidgets.QGridLayout(self.regular_page)
@@ -275,10 +450,10 @@ class Ui_MainPage(object):
         self.available_currency.addItem("")
         self.available_currency.addItem("")
         self.gridLayout_3.addWidget(self.available_currency, 1, 1, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem2, 0, 0, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem3, 0, 2, 1, 1)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem6, 0, 0, 1, 1)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem7, 0, 2, 1, 1)
         self.required_currency = QtWidgets.QComboBox(self.converter_page)
         self.required_currency.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
@@ -357,10 +532,10 @@ class Ui_MainPage(object):
         self.gridLayout_7 = QtWidgets.QGridLayout(self.exchange_page)
         self.gridLayout_7.setHorizontalSpacing(40)
         self.gridLayout_7.setObjectName("gridLayout_7")
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_7.addItem(spacerItem4, 0, 5, 1, 1)
-        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_7.addItem(spacerItem5, 0, 0, 1, 1)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_7.addItem(spacerItem8, 0, 5, 1, 1)
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_7.addItem(spacerItem9, 0, 0, 1, 1)
         self.years_box = QtWidgets.QComboBox(self.exchange_page)
         self.years_box.setMinimumSize(QtCore.QSize(70, 0))
         font = QtGui.QFont()
@@ -774,8 +949,8 @@ class Ui_MainPage(object):
         self.profile_picture.setAlignment(QtCore.Qt.AlignCenter)
         self.profile_picture.setObjectName("profile_picture")
         self.gridLayout_6.addWidget(self.profile_picture, 0, 1, 1, 1)
-        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_6.addItem(spacerItem6, 0, 2, 1, 1)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_6.addItem(spacerItem10, 0, 2, 1, 1)
         self.account_description = QtWidgets.QLineEdit(self.profile_page)
         self.account_description.setMinimumSize(QtCore.QSize(0, 30))
         self.account_description.setStyleSheet("\n"
@@ -795,8 +970,8 @@ class Ui_MainPage(object):
         self.current_email.setReadOnly(True)
         self.current_email.setObjectName("current_email")
         self.gridLayout_6.addWidget(self.current_email, 1, 1, 1, 1)
-        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_6.addItem(spacerItem7, 0, 0, 1, 1)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_6.addItem(spacerItem11, 0, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.profile_page)
         self.label_2.setStyleSheet("color: white;\n"
 "font: 9pt \"MS Reference Sans Serif\";")
@@ -858,39 +1033,40 @@ class Ui_MainPage(object):
         self.list_of_pages.addItem(item)
         item = QtWidgets.QListWidgetItem()
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("icons/bar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("icons/regular.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         item.setIcon(icon4)
         self.list_of_pages.addItem(item)
         item = QtWidgets.QListWidgetItem()
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("icons/regular.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("icons/converter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         item.setIcon(icon5)
         self.list_of_pages.addItem(item)
         item = QtWidgets.QListWidgetItem()
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("icons/converter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("icons/exchange_rate.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         item.setIcon(icon6)
         self.list_of_pages.addItem(item)
         item = QtWidgets.QListWidgetItem()
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("icons/exchange_rate.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("icons/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         item.setIcon(icon7)
-        self.list_of_pages.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("icons/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        item.setIcon(icon8)
         self.list_of_pages.addItem(item)
         self.gridLayout_2.addWidget(self.list_of_pages, 0, 0, 2, 1)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
 
         self.retranslateUi(MainPage)
-        self.stacked_main_pages.setCurrentIndex(2)
+        self.stacked_main_pages.setCurrentIndex(0)
+        self.tab_widget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainPage)
 
     def retranslateUi(self, MainPage):
         _translate = QtCore.QCoreApplication.translate
         MainPage.setWindowTitle(_translate("MainPage", "Form"))
+        self.currency_label.setText(_translate("MainPage", "RUB"))
+        self.add_expenditure_button.setText(_translate("MainPage", "+"))
+        self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab), _translate("MainPage", "Расходы"))
+        self.add_income_button.setText(_translate("MainPage", "+"))
+        self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab_2), _translate("MainPage", "Доходы"))
         self.create_regular_button.setText(_translate("MainPage", "Создать"))
         self.label.setText(_translate("MainPage", "КОНВЕРТЕР ВАЛЮТ"))
         self.required_sum.setPlaceholderText(_translate("MainPage", "Вы получите:"))
@@ -1108,13 +1284,11 @@ class Ui_MainPage(object):
         item = self.list_of_pages.item(1)
         item.setText(_translate("MainPage", "Диаграмма"))
         item = self.list_of_pages.item(2)
-        item.setText(_translate("MainPage", "График"))
-        item = self.list_of_pages.item(3)
         item.setText(_translate("MainPage", "Регулярные платежи"))
-        item = self.list_of_pages.item(4)
+        item = self.list_of_pages.item(3)
         item.setText(_translate("MainPage", "Конвертер валют"))
-        item = self.list_of_pages.item(5)
+        item = self.list_of_pages.item(4)
         item.setText(_translate("MainPage", "Курс валют"))
-        item = self.list_of_pages.item(6)
+        item = self.list_of_pages.item(5)
         item.setText(_translate("MainPage", "Настройки"))
         self.list_of_pages.setSortingEnabled(__sortingEnabled)
