@@ -1,24 +1,21 @@
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtWidgets import QLineEdit, QListWidgetItem, QTableWidgetItem, QMessageBox, QGridLayout, QInputDialog
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QLineEdit, QListWidgetItem, QTableWidgetItem, QMessageBox, QInputDialog
+from PyQt5.QtCore import Qt, QTimer
 from main_page import Ui_MainPage
 from inc_and_exp_classes import *
-from plot_class import MplCanvas
 import sqlite3
 from currency_converter import CurrencyConverter
 from forex_python.converter import CurrencyRates, RatesNotAvailableError
-import matplotlib
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-from matplotlib.figure import Figure
 import datetime
 import sqlite3
 from custom_view_for_rates import CustomView
-from regular_details_window import PaymentDetails, show_regular_list
+from regular_details_window import *
 from requests.exceptions import ConnectionError
 from CONSTANTS import *
 import CONSTANTS
 from entrance_window import *
+from db_queries import *
+from dateutil.relativedelta import relativedelta
 
 
 class MainPage(QWidget, Ui_MainPage):
@@ -27,17 +24,20 @@ class MainPage(QWidget, Ui_MainPage):
         self.setupUi(self)
 
         CONSTANTS.ID = CURSOR.execute("""SELECT id FROM accounts WHERE email = ?""", (cur_email,)).fetchone()[0]
-        CONSTANTS.EXPENDITURE = CURSOR.execute("""SELECT expenditure FROM details WHERE detailId = ?""",
-                                               (CONSTANTS.ID,))
-        CONSTANTS.INCOME = CURSOR.execute("""SELECT income FROM details WHERE detailId = ?""",
-                                          (CONSTANTS.ID,))
         try:
-            assert CURSOR.execute("""SELECT detailId FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchall()
+            assert get_detailId()
         except:
-            CURSOR.execute("""INSERT INTO details (detailId) VALUES(?)""", (CONSTANTS.ID,))
+            add_detailId()
             CONNECTION.commit()
-        self.show_expenditure_pie()
-        self.show_income_pie()
+
+        write_off_payments(self)
+
+        # timer = QTimer()
+        # timer.timeout.connect(self.connect_write_off)
+        # timer.start(60000)
+
+        show_expenditure_pie(self)
+        show_income_pie(self)
         show_regular_list(self)
         self.show_description()
 
@@ -58,19 +58,17 @@ class MainPage(QWidget, Ui_MainPage):
         self.months_box.setCurrentText(f"{today.month}")
         self.days_box.setCurrentText(f"{today.day}")
 
-        self.list_of_accounts.addItem(CURSOR.execute("""SELECT name FROM details WHERE detailId = ?""",
-                                                     (CONSTANTS.ID,)).fetchone()[0])
-        self.balance_label.setText(str(CURSOR.execute("""SELECT amount FROM details WHERE detailId = ?""",
-                                                      (CONSTANTS.ID,)).fetchone()[0]))
+        self.list_of_accounts.addItem(get_name())
+        self.balance_label.setText(str(get_amount()))
 
     def check_accounts_list(self):
-        bill_name = CURSOR.execute("""SELECT name FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchone()[0]
+        bill_name = get_name()
         if not bill_name:
             name, ok_press = QInputDialog.getText(self, "Добавление счета", "Введите имя счета")
 
             if ok_press:
                 self.list_of_accounts.addItem(name)
-                CURSOR.execute("""UPDATE details SET name = ? WHERE detailId = ?""", (name, CONSTANTS.ID))
+                set_name((name, CONSTANTS.ID))
                 CONNECTION.commit()
         else:
             self.list_of_accounts.addItem(bill_name)
@@ -81,21 +79,20 @@ class MainPage(QWidget, Ui_MainPage):
         self.entrance_page.show()
 
     def add_bill(self):
+
         balance, ok_press = QInputDialog.getText(self, "Редактирование суммы", "Введите сумму на счете")
 
         if ok_press:
             self.balance_label.setText(balance)
-            CURSOR.execute("""UPDATE details SET amount = ? WHERE detailId = ?""", (balance, CONSTANTS.ID))
+            set_amount((balance, CONSTANTS.ID))
             CONNECTION.commit()
 
     def save_description(self):
-        CURSOR.execute("""UPDATE accounts SET description = ? WHERE id = ?""",
-                       (self.account_description.text(), CONSTANTS.ID))
+        set_description((self.account_description.text(), CONSTANTS.ID))
         CONNECTION.commit()
 
     def show_description(self):
-        des = CURSOR.execute("""SELECT description FROM accounts WHERE id = ?""",
-                             (CONSTANTS.ID,)).fetchone()[0]
+        des = get_description()
         if des:
             self.account_description.setText(des)
 
@@ -170,8 +167,16 @@ class MainPage(QWidget, Ui_MainPage):
                 break
 
         if not selected_date_true - previous_date:
-            previous_date -= datetime.timedelta(days=1)
-            rates_for_previous_date = conv.get_rates("RUB", date_obj=previous_date)
+            _cnt = 1
+            while True:
+                try:
+                    previous_date -= datetime.timedelta(days=_cnt)
+                    rates_for_previous_date = conv.get_rates("RUB", date_obj=previous_date)
+                except RatesNotAvailableError:
+                    _cnt += 1
+                    continue
+                else:
+                    break
 
         for i in range(COUNT_OF_CURRENCIES):
             try:
@@ -208,8 +213,7 @@ class MainPage(QWidget, Ui_MainPage):
     def delete_regular(self):
         row = self.regular_list.currentRow()
         if row != -1:
-            CURSOR.execute("""DELETE FROM payment_details
-                                WHERE name = ?""", (self.regular_list.currentItem().text().split("\t")[0],))
+            del_regular_payment((self.regular_list.currentItem().text().split("\t")[0],))
             self.regular_list.takeItem(row)
             CONNECTION.commit()
 
@@ -218,64 +222,13 @@ class MainPage(QWidget, Ui_MainPage):
         self.pay_window.show()
         show_regular_list(self)
 
-    def show_expenditure_pie(self):
-        percents = []
-
-        categories = ["Кафе", "Здоровье", "Продукты", "Транспорт", "Другое"]
-
-        data = CURSOR.execute("""SELECT * FROM expenditures WHERE expenditureId = ?""", (CONSTANTS.ID,)).fetchall()
-        expenditure = CURSOR.execute("""SELECT expenditure FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchone()[0]
-        used_categories = [i[2] for i in data]
-
-        for idx, value in enumerate(categories):
-            if value not in used_categories:
-                percents.append(0)
-            else:
-                index_of_value = used_categories.index(value)
-                percent = data[index_of_value][1] / expenditure * 100
-                percents.append(percent)
-
-        colors = ['#E2CF2C', '#FF2646', '#8FCCFB', '#1C98FF', '#FF22A1']
-        self.construct_pie_plot(percents, colors, expenditure)
-        self.frame_for_expenditures_pie.setLayout(self.framelayout)
-
-    def show_income_pie(self):
-        percents = []
-
-        data = CURSOR.execute("""SELECT * FROM incomes WHERE incomeId = ?""", (CONSTANTS.ID,)).fetchall()
-
-        income = CURSOR.execute("""SELECT income FROM details WHERE detailId = ?""", (CONSTANTS.ID,)).fetchone()[0]
-        categories = ["Зарплата", "Подарок", "Другое"]
-        used_categories = [i[2] for i in data]
-
-        for idx, value in enumerate(categories):
-            if value not in used_categories:
-                percents.append(0)
-            else:
-                index_of_value = used_categories.index(value)
-                percent = data[index_of_value][1] / income * 100
-                percents.append(percent)
-
-        colors = ['#84A77C', '#28C887', '#FF22A1']
-        self.construct_pie_plot(percents, colors, income)
-        self.frame_for_incomes_pie.setLayout(self.framelayout)
-
-    def construct_pie_plot(self, values, colors_list, text):
-        self.framelayout = QGridLayout()
-
-        sc = MplCanvas(self)
-
-        if not values:
-            return
-        sc.axes.pie(values, wedgeprops=dict(width=0.5, edgecolor='#004445'), colors=colors_list)
-        sc.axes.text(0, -1.2, f"Сумма: {text}", color='w', horizontalalignment='center', verticalalignment='top')
-        self.framelayout.addWidget(sc)
-        self.frame_for_expenditures_pie.setLayout(self.framelayout)
-
     def add_expenditure(self):
-        self.ew = ExpWindow()
+        self.ew = ExpWindow(self)
         self.ew.show()
 
     def add_income(self):
-        self.iw = IncWindow()
+        self.iw = IncWindow(self)
         self.iw.show()
+
+    def connect_write_off(self):
+        write_off_payments(self)
