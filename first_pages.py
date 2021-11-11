@@ -406,7 +406,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Form"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Финансовый органайзер"))
         self.input_email.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.input_email.setPlaceholderText(_translate("MainWindow", "Введите e-mail"))
         self.input_password.setPlaceholderText(_translate("MainWindow", "Введите пароль"))

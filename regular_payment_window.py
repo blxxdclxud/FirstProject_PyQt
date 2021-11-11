@@ -212,7 +212,7 @@ class Ui_RegularWindow(object):
 
     def retranslateUi(self, RegularWindow):
         _translate = QtCore.QCoreApplication.translate
-        RegularWindow.setWindowTitle(_translate("RegularWindow", "Form"))
+        RegularWindow.setWindowTitle(_translate("RegularWindow", "Детали платежа"))
         self.type_of_reg.setText(_translate("RegularWindow", "Тип платежа"))
         self.expenditure_radio.setText(_translate("RegularWindow", "Расходы"))
         self.income_radio.setText(_translate("RegularWindow", "Доходы"))

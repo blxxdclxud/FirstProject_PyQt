@@ -1063,7 +1063,7 @@ class Ui_MainPage(object):
 
     def retranslateUi(self, MainPage):
         _translate = QtCore.QCoreApplication.translate
-        MainPage.setWindowTitle(_translate("MainPage", "Form"))
+        MainPage.setWindowTitle(_translate("MainPage", "Финансовый органайзер"))
         self.currency_label.setText(_translate("MainPage", "RUB"))
         self.add_expenditure_button.setText(_translate("MainPage", "+"))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.tab), _translate("MainPage", "Расходы"))
