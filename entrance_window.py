@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt
 from first_pages import Ui_MainWindow
 from string import digits, ascii_lowercase, ascii_uppercase, ascii_letters
 import hashlib
-from main_window import MainPage
+import main_window as mw
 from CONSTANTS import *
 
 
@@ -83,7 +83,7 @@ class EntrancePage(QWidget, Ui_MainWindow):
             else:
                 file.write("False;")
         self.close()
-        self.main_page = MainPage(email)
+        self.main_page = mw.MainPage(email)
         self.main_page.show()
         self.main_page.check_accounts_list()
 

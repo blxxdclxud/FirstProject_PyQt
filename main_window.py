@@ -16,6 +16,7 @@ import CONSTANTS
 from entrance_window import *
 from db_queries import *
 from dateutil.relativedelta import relativedelta
+import entrance_window as ew
 
 
 class MainPage(QWidget, Ui_MainPage):
@@ -75,7 +76,7 @@ class MainPage(QWidget, Ui_MainPage):
 
     def go_sign_in_page_from_main_page(self):
         self.close()
-        self.entrance_page = EntrancePage()
+        self.entrance_page = ew.EntrancePage()
         self.entrance_page.show()
 
     def add_bill(self):
